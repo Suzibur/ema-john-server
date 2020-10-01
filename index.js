@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const port = 4000;
 require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.wanio.mongodb.net/Ema-John?retryWrites=true&w=majority`;
@@ -44,4 +45,4 @@ client.connect(err => {
 
 });
 
-app.listen(4000);
+app.listen(process.env.PORT || port);
